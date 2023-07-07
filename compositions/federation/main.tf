@@ -18,5 +18,6 @@ module "federation-github" {
     "attribute.actor"      = "assertion.actor"
     "attribute.aud"        = "assertion.aud"
     "attribute.repository" = "assertion.repository"
+    # "attribute.repository_owner" = "assertion.repository_owner"
   }
 }
