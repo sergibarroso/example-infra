@@ -1,0 +1,6 @@
+project_id           = "celonis-labs"
+pool_id              = "celonis"
+provider_id          = "gh-example-app"
+issuer_uri           = "https://token.actions.githubusercontent.com"
+service_account_name = "github@celonis-labs.iam.gserviceaccount.com"
+github_repository    = "sergibarroso/example-app"
