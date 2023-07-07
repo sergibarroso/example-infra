@@ -7,4 +7,5 @@ module "service_account_github" {
   names         = [var.name]
   project_roles = var.roles
   description   = var.description
+  generate_keys = var.generate_keys
 }

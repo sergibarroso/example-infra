@@ -23,3 +23,8 @@ variable "description" {
   type        = string
   description = "Description of the service account."
 }
+
+variable "generate_keys" {
+  type        = bool
+  description = "Generate keys for service accounts."
+}
