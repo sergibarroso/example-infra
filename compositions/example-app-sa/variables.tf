@@ -19,11 +19,6 @@ variable "roles" {
   description = "List of roles to assign to the service account."
 }
 
-variable "display_name" {
-  type        = string
-  description = "Display name of the service account."
-}
-
 variable "description" {
   type        = string
   description = "Description of the service account."

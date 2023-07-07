@@ -6,6 +6,5 @@ module "service_account_github" {
   prefix        = var.prefix
   names         = [var.name]
   project_roles = var.roles
-  display_name  = var.display_name
   description   = var.description
 }
