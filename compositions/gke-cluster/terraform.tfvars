@@ -1,0 +1,7 @@
+cluster_name           = "gke-on-vpc-cluster"
+ip_range_pods_name     = "ip-range-pods"
+ip_range_services_name = "ip-range-svc"
+network                = "gke-network"
+project_id             = "celonis-labs"
+region                 = "europe-west6"
+subnetwork             = "gke-subnet"
