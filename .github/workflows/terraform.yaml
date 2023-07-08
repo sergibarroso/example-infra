@@ -14,14 +14,14 @@ on:
       - dev
 
 jobs:
-  service-accounts:
+  gke-cluster:
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
     defaults:
       run:
-        working-directory: compositions/service-accounts
+        working-directory: compositions/gke-cluster
 
     steps:
       - name: Checkout repository
