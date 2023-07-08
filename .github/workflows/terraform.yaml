@@ -54,7 +54,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.2
-          github-token: ${{ secrets.SA_KEY }}
 
       - name: Terraform Init
         run: terraform init
