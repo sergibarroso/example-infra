@@ -1,2 +1,2 @@
 project_id = "celonis-labs"
-region     = "EU-WEST6"
+region     = "europe-west6"

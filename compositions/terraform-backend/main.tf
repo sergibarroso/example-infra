@@ -5,9 +5,9 @@ module "terraform-backend" {
   names                    = [join("-", [var.project_id, "tf-backend"])]
   project_id               = var.project_id
   location                 = local.country_short_name
-  public_access_prevention = true
+  public_access_prevention = "inherited"
   set_admin_roles          = true
-  admins                   = ["user:spam@example.com,eggs@example.com"]
+  admins                   = [join("", ["user:", data.google_client_openid_userinfo.current.email])]
 
   versioning = {
     join("-", [var.project_id, "tf-backend"]) = true
