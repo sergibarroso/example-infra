@@ -26,6 +26,7 @@ jobs:
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v5
         env:
+          DEFAULT_BRANCH: ${{ env.GITHUB_REF_NAME }}
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_KUBERNETES_KUBECONFORM: true
