@@ -50,7 +50,7 @@ module "dns-public-zone" {
   type                               = "public"
   name                               = var.dns_zone_name
   domain                             = var.dns_zone_domain
-  private_visibility_config_networks = [var.network_self_links]
+  private_visibility_config_networks = ["https://www.googleapis.com/compute/v1/projects/${var.project_id}/global/networks/${module.gcp-network.network_name}"]
   enable_logging                     = true
   recordsets                         = var.record_sets
 }

@@ -7,7 +7,6 @@ region                 = "europe-west6"
 subnetwork             = "gke-subnet"
 dns_zone_name          = "example-team-sbt-challenge-org"
 dns_zone_domain        = "example-team.sbt-challenge.org."
-network_self_links     = []
 record_sets = [
   {
     name = "ns"
