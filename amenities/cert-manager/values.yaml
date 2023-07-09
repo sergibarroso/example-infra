@@ -19,8 +19,8 @@ securityContext:
 serviceAccount:
   create: true
   name: cert-manager
-  # annotations:
-  #   iam.gke.io/gcp-service-account:
+  annotations:
+    iam.gke.io/gcp-service-account: dns01-solver@$celonis-labs.iam.gserviceaccount.com
 containerSecurityContext:
   runAsNonRoot: true
   readOnlyRootFilesystem: true
