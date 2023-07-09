@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: namespace-limits
+  namespace: example-app
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 2000m
+        memory: 1Gi
+      defaultRequest:
+        cpu: '2'
+        memory: 1Gi
