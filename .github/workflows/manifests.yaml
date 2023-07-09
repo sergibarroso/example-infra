@@ -1,0 +1,45 @@
+name: manifests
+
+on:
+  push:
+    branches:
+      - main
+      - stg
+      - dev
+    tags: ['v*.*.*']
+  pull_request:
+    branches:
+      - main
+      - stg
+      - dev
+
+jobs:
+  manifests:
+    runs-on: ubuntu-latest
+    needs: [gke-cluster, cert-manager]
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: amenities/manifests
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: '${{ secrets.GCP_ACCESS_TOKEN }}'
+
+      - name: Get cluster credentials
+        uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: gke-on-vpc-cluster
+          location: europe-west6
+
+      # The KUBECONFIG env var is automatically exported and picked up by kubectl.
+      - name: Apply manifests
+        run: 'kubectl apply -f *.yaml'
