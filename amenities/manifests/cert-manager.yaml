@@ -2,34 +2,27 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: selfsigned-issuer
+  name: example-issuer
 spec:
-  selfSigned: {}
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: sergibarroso@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+      - dns01:
+        cloudDNS:
+          project: celonis-labs
 
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: labs-selfsigned-ca
+  name: example-cert
   namespace: cert-manager
 spec:
-  isCA: true
-  commonName: labs-selfsigned-ca
-  secretName: root-secret
-  privateKey:
-    algorithm: ECDSA
-    size: 256
+  secretName: example-cert-tls
   issuerRef:
-    name: selfsigned-issuer
-    kind: ClusterIssuer
-    group: cert-manager.io
-
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: labs-ca-issuer
-  namespace: cert-manager
-spec:
-  ca:
-    secretName: root-secret
+    name: example-issuer
+  dnsNames:
+    - '*.example-app.example-team.sbt-challenge.org'
