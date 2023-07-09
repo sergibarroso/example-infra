@@ -1,21 +1,9 @@
 name: manifests
 
 on:
-  push:
-    branches:
-      - main
-      - stg
-      - dev
-    tags: ['v*.*.*']
-  pull_request:
-    branches:
-      - main
-      - stg
-      - dev
   workflow_run:
     workflows: [terraform]
-    types:
-      - completed
+    types: [completed]
 
 jobs:
   manifests:
