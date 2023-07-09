@@ -194,6 +194,12 @@ jobs:
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_ACCESS_TOKEN }}
 
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: '${{ secrets.GCP_ACCESS_TOKEN }}'
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
         with:
