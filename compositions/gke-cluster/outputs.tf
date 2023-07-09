@@ -45,3 +45,8 @@ output "region" {
   description = "The region to host the cluster in"
   value       = data.google_client_config.current.region
 }
+
+output "name_servers" {
+  description = "Zone name servers."
+  value       = module.dns-public-zone.name_servers
+}

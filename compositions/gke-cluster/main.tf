@@ -41,3 +41,15 @@ module "gke" {
   ip_range_services      = var.ip_range_services_name
   create_service_account = true
 }
+
+module "dns-public-zone" {
+  source  = "terraform-google-modules/cloud-dns/google"
+  version = "5.0.0"
+
+  type                               = "public"
+  name                               = var.dns_zone_name
+  domain                             = var.dns_zone_domain
+  private_visibility_config_networks = [var.network_self_links]
+  enable_logging                     = true
+  recordsets                         = var.record_sets
+}

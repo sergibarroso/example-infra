@@ -32,3 +32,23 @@ variable "ip_range_services_name" {
   description = "The secondary ip range to use for services"
   type        = string
 }
+
+variable "dns_zone_name" {
+  description = "DNS zone name."
+  type        = string
+}
+
+variable "dns_zone_domain" {
+  description = "Zone domain."
+  type        = string
+}
+
+variable "network_self_links" {
+  description = "Self link of the network that will be allowed to query the zone."
+  type        = list(string)
+}
+
+variable "record_sets" {
+  description = "List of DNS record objects to manage, in the standard terraform dns structure."
+  type = list(map)
+}
