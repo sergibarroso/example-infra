@@ -5,8 +5,8 @@ network                = "gke-network"
 project_id             = "celonis-labs"
 region                 = "europe-west6"
 subnetwork             = "gke-subnet"
-dns_zone_name          = "example-team-clabsbt-challenge-org"
-dns_zone_domain        = "example-team.clabsbt-challenge.org."
+dns_zone_name          = "example-team-sbt-challenge-org"
+dns_zone_domain        = "example-team.sbt-challenge.org."
 network_self_links     = []
 record_sets = [
   {
@@ -22,7 +22,7 @@ record_sets = [
     type = "NS"
     ttl  = 300
     records = [
-      "ns.example-team.clabsbt-challenge.org.",
+      "ns.example-team.sbt-challenge.org.",
     ]
   },
   {
