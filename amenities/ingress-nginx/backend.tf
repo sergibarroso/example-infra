@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
     bucket = "celonis-labs-tf-backend"
-    prefix = "cert-manager"
+    prefix = "ingress-nginx"
   }
 }
