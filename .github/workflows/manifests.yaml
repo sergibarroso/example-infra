@@ -12,11 +12,14 @@ on:
       - main
       - stg
       - dev
+  workflow_run:
+    workflows: [terraform]
+    types:
+      - completed
 
 jobs:
   manifests:
     runs-on: ubuntu-latest
-    needs: [gke-cluster, cert-manager]
     permissions:
       contents: read
       id-token: write
