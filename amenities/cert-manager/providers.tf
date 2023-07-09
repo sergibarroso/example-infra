@@ -3,6 +3,10 @@ terraform {
 
   required_providers {
     helm = "~> 2.0"
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
   }
 }
 
@@ -13,3 +17,5 @@ provider "helm" {
     cluster_ca_certificate = base64decode(data.google_container_cluster.this.master_auth[0].cluster_ca_certificate)
   }
 }
+
+provider "google" {}
