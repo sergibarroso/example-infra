@@ -50,5 +50,10 @@ variable "network_self_links" {
 
 variable "record_sets" {
   description = "List of DNS record objects to manage, in the standard terraform dns structure."
-  type = list(map)
+  type = list(object({
+    name    = string
+    type    = string
+    ttl     = number
+    records = list(string)
+  }))
 }
