@@ -109,7 +109,7 @@ jobs:
 
   cert-manager-sa:
     runs-on: ubuntu-latest
-    needs: [gke-cluster]
+    needs: [gke-cluster, cert-manager]
     permissions:
       actions: read
       contents: read
@@ -159,7 +159,7 @@ jobs:
 
   cert-manager:
     runs-on: ubuntu-latest
-    needs: [gke-cluster, cert-manager-sa]
+    needs: [gke-cluster]
     permissions:
       actions: read
       contents: read
