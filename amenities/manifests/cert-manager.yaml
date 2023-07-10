@@ -13,7 +13,6 @@ spec:
       - dns01:
           cloudDNS:
             project: celonis-labs
-            
 
 ---
 apiVersion: cert-manager.io/v1
