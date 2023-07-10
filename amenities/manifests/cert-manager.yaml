@@ -11,8 +11,9 @@ spec:
       name: letsencrypt
     solvers:
       - dns01:
-        cloudDNS:
-          project: celonis-labs
+          cloudDNS:
+            project: celonis-labs
+            
 
 ---
 apiVersion: cert-manager.io/v1
