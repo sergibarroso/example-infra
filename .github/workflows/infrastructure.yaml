@@ -229,7 +229,7 @@ jobs:
 
   manifests:
     runs-on: ubuntu-latest
-    needs: [gke-cluster, cert-manager, ingress-nginx]
+    needs: [cert-manager-sa, example-app-sa, ingress-nginx]
     permissions:
       contents: read
       id-token: write
