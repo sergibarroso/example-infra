@@ -51,10 +51,7 @@ rules:
     verbs: ['create', 'get', 'watch', 'list']
   - apiGroups: ['']
     resources: ['secrets']
-    verbs: ['create', 'delete', 'patch', 'list', 'update']
-  - apiGroups: ['']
-    resources: ['secrets']
-    verbs: ['get']
+    verbs: ['*']
   - apiGroups: ['']
     resources:
       - pods
