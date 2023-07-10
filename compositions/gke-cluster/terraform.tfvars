@@ -6,7 +6,7 @@ project_id             = "celonis-labs"
 region                 = "europe-west6"
 subnetwork             = "gke-subnet"
 dns_zone_name          = "example-team-sbt-challenge-org"
-dns_zone_domain        = "example-team.sbt-challenge.org."
+dns_zone_domain        = "challenge.sergibarroso.me."
 record_sets = [
   {
     name = "ns"
@@ -21,7 +21,7 @@ record_sets = [
     type = "NS"
     ttl  = 300
     records = [
-      "ns.example-team.sbt-challenge.org.",
+      "ns.challenge.sergibarroso.me.",
     ]
   },
   {

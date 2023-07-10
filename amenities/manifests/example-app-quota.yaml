@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: ResourceQuota
-metadata:
-  name: namespace-quota
-  namespace: example-app
-spec:
-  hard:
-    services.loadbalancers: 0
