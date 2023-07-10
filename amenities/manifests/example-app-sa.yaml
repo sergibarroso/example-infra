@@ -1,8 +1,0 @@
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: tenant-sa
-  namespace: example-app
-  annotations:
-    iam.gke.io/gcp-service-account: example-app@celonis-labs.iam.gserviceaccount.com
