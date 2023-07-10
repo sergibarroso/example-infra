@@ -155,7 +155,7 @@ jobs:
 
       - name: Role binding
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: gcloud iam service-accounts add-iam-policy-binding --role roles/iam.workloadIdentityUser --member "serviceAccount:celonis-labs.svc.id.goog[cert-manager/cert-manager]" dns01-solver@celonis-labs.iam.gserviceaccount.com
+        run: gcloud iam service-accounts add-iam-policy-binding --role roles/iam.workloadIdentityUser --member "serviceAccount:celonis-labs.svc.id.goog[cert-manager/cert-manager]" cert-manager@celonis-labs.iam.gserviceaccount.com
 
   cert-manager:
     runs-on: ubuntu-latest
@@ -257,3 +257,12 @@ jobs:
       - name: Apply manifests
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: 'kubectl apply -f *.yaml'
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          version: '437.0.1'
+
+      - name: Role binding
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: gcloud iam service-accounts add-iam-policy-binding --role roles/iam.workloadIdentityUser --member "serviceAccount:celonis-labs.svc.id.goog[example-app/tenant-sa]" example-app@celonis-labs.iam.gserviceaccount.com
