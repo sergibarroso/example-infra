@@ -256,7 +256,7 @@ jobs:
       # The KUBECONFIG env var is automatically exported and picked up by kubectl.
       - name: Apply manifests
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: 'kubectl apply -f *.yaml'
+        run: 'kubectl apply -f .'
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
