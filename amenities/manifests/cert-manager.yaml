@@ -25,4 +25,5 @@ spec:
   issuerRef:
     name: example-issuer
   dnsNames:
-    - '*.example-app.example-team.sbt-challenge.org'
+    - 'challenge.sergibarroso.me'
+    - '*.challenge.sergibarroso.me'
