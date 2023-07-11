@@ -1,8 +1,9 @@
-kind: Secret
-type: kubernetes.io/dockerconfigjson
+---
 apiVersion: v1
+kind: Secret
 metadata:
   name: dockerconfigjson-ghcr
   namespace: example-app
-stringData:
-  .dockerconfigjson: { 'auths': { 'ghcr.io': { 'auth': '<AUTH>' } } }
+data:
+  .dockerconfigjson: <DOCKER_CONFIG>
+type: kubernetes.io/dockerconfigjson
