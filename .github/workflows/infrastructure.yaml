@@ -253,6 +253,9 @@ jobs:
           cluster_name: gke-on-vpc-cluster
           location: europe-west6
 
+      - name: Add Docker Config Secret
+        run: sed -i "s/<AUTH>/${{ secrets.GHCR_TOKEN }}/g" github-docker.yaml
+
       # The KUBECONFIG env var is automatically exported and picked up by kubectl.
       - name: Apply manifests
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
