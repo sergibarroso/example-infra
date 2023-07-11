@@ -3,5 +3,6 @@ type: kubernetes.io/dockerconfigjson
 apiVersion: v1
 metadata:
   name: dockerconfigjson-ghcr
+  namespace: example-app
 stringData:
   .dockerconfigjson: { 'auths': { 'ghcr.io': { 'auth': '<AUTH>' } } }
