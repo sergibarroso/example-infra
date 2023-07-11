@@ -1,39 +1,4 @@
 controller:
-  admissionWebhooks:
-    enabled: false
-    patch:
-      securityContext:
-        capabilities:
-          drop:
-            - ALL
-        readOnlyRootFilesystem: true
-        runAsNonRoot: true
-        allowPrivilegeEscalation: false
-        seccompProfile:
-          type: RuntimeDefault
-    createSecretJob:
-      resources:
-        limits:
-          cpu: 10m
-          memory: 20Mi
-        requests:
-          cpu: 10m
-          memory: 20Mi
-    patchWebhookJob:
-      resources:
-        limits:
-          cpu: 10m
-          memory: 20Mi
-        requests:
-          cpu: 10m
-          memory: 20Mi
-  topologySpreadConstraints:
-    - maxSkew: 1
-      topologyKey: kubernetes.io/hostname
-      whenUnsatisfiable: ScheduleAnyway
-      labelSelector:
-        matchLabels:
-          app.kubernetes.io/instance: ingress-nginx
   resources:
     limits:
       cpu: 200m
@@ -44,34 +9,13 @@ controller:
   containerSecurityContext:
     runAsNonRoot: true
     allowPrivilegeEscalation: false
-    capabilities:
-      add:
-        - NET_BIND_SERVICE
-      drop:
-        - ALL
     runAsUser: 101
-    seccompProfile:
-      type: RuntimeDefault
-  replicaCount: 3
-  config:
-    use-proxy-protocol: 'true'
-  extraArgs:
-    shutdown-grace-period: '280'
-    v: '4'
-    http-port: 8080
-    https-port: 8081
   service:
-    externalTrafficPolicy: Local
     external:
       enabled: true
     internal:
       enabled: false
-      annotations:
-        # Create internal LB. More information: https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing
-        # For GKE versions 1.17 and later
-        networking.gke.io/load-balancer-type: 'Internal'
-        # Any other annotation can be declared here.
-  # -- Configures the ports that the nginx-controller listens on
-  containerPort:
-    http: 8080
-    https: 8081
+      # annotations:
+      #   # Create internal LB. More information: https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing
+      #   # For GKE versions 1.17 and later
+      #   networking.gke.io/load-balancer-type: 'Internal'
