@@ -4,6 +4,6 @@ module "helm" {
 
   namespace  = var.namespace
   repository = var.repository
-  # values     = [file("values.yaml")]
-  app = var.app
+  values     = [file("values.yaml")]
+  app        = var.app
 }
