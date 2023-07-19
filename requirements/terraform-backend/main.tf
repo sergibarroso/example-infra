@@ -8,6 +8,7 @@ module "terraform-backend" {
   public_access_prevention = "inherited"
   set_admin_roles          = true
   admins                   = [join("", ["user:", data.google_client_openid_userinfo.current.email])]
+  force_destroy = { true = true }
 
   versioning = {
     join("-", [var.project_id, "tf-backend"]) = true
